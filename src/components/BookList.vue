@@ -2,12 +2,13 @@
   <div>
     <h1>{{title}}</h1>
     <ul>
-      <li v-for='book in books'>{{book.title}}:{{book.author}}</li>
+       <book-item v-for='book in books' :book='book'></book-item>
     </ul>
   </div>
 </template>
 
 <script>
+import BookItem from './BookItem';
 export default {
   name: 'BookList',
   data() {
@@ -19,10 +20,12 @@ export default {
         {title: 'Amusing Ourselves to Death', author: 'Neil Postman'},
       ]
     };
+  },
+  components: {
+    BookItem
   }
 };
 </script>
-
 <style>
 h1, h2 {
   font-weight: normal;
@@ -31,4 +34,4 @@ ul {
   list-style-type: none;
   padding: 0;
 }
-</style> 
+</style>
